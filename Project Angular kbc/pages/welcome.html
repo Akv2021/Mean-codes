@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../libs/angular.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/app.js"></script>
+    <script src="../js/model.js"></script>
+    <script src="../js/controller.js"></script>
+    <script src="../libs/angular-route.min.js"></script>
+    
+    <script src="../libs/ngStorage.min.js"></script>
+
+</head>
+
+<body ng-app="myApp2" ng-controller="myctrl2" ng-class="bg">
+    <fieldset>
+        <legend>ZZ KBC</legend>
+        <div class="align">
+
+             <div class="circle" ng-class={"red":clicked,"green":answered0}>
+               1  
+          </div>
+              <div class="circle" ng-class={"red":clicked,"green":answered1}>
+               2
+          </div>
+              <div class="circle" ng-class={"red":clicked,"green":answered2}>
+               3 
+          </div>
+              <div class="circle" ng-class={"red":clicked,"green":answered3}>
+               4
+        
+        </div> 
+             </div>
+
+        <table>
+
+            <tr ng-class = "red">
+                <td>Welcome to KBC {{welcome.id}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <button ng-click="start()">START</button>
+
+                </td>
+                <td> 
+                
+                <input type="button" onclick="location.href='../login.html'" value="LOGOUT" />
+                </td>
+            
+            </tr>
+
+            <tr>
+                <td ng-model="id1">Q.{{result[id1].question}} </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>{{result[id2].choices[0]}}</li>
+                        <li>{{result[id2].choices[1]}}</li>
+                        <li>{{result[id2].choices[2]}}</li>
+                        <li>{{result[id2].choices[3]}}</li>
+
+
+                    </ul>
+                </td>
+                <!--                <td ng-model="id2" >{{result[id2].choices}}</td>-->
+
+            </tr>
+
+
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="0" ng-model="radioValue"> A
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="1" ng-model="radioValue"> B
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="2" ng-model="radioValue"> C
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="3" ng-model="radioValue"> D
+
+                </td>
+            </tr>
+
+            <span>
+        
+         <tr>
+            <td>
+              <div ng-show="!submit">
+           <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
+           <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
+<!--            <button ng-click = "deselect()" ng-if="id1<4">deselect </button>-->
+            <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit</button>
+                </div>
+             </td>
+         </tr>
+         
+          </span>
+            <div ng-show="submit">
+                <tr>
+                    <td>
+                        <h1>{{message}} {{score}} </h1>
+                        <h2>{{prize}}</h2>
+                    </td>
+                </tr>
+
+            </div>
+
+        </table>
+
+
+    </fieldset>
+
+</body>
+
+</html>
