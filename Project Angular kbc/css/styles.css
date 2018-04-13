@@ -33,21 +33,25 @@
     left: 1200px;
 }
 
-.selected {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: green;
-    text-align: center;
-    position: relative;
-    left: 1200px;
-}
-
 .align {
     overflow: hidden;
     white-space: nowrap;
 }
 
+.score {
+    text-align: center;
+    position: relative;
+    background: green;
+}
+.prize {
+    text-align: center;
+    position: relative;
+    background: purple;
+}
+.question {
+    position: relative;
+    background: grey;
+}
 body {
     background-image: url("../img/kbc.jpg");
     color: yellow;

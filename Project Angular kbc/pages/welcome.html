@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>KBC Welcomes You</title>
     <script src="../libs/angular.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/app.js"></script>
@@ -17,32 +17,28 @@
 
 <body ng-app="myApp2" ng-controller="myctrl2" ng-class="bg">
     <fieldset>
-        <legend>ZZ KBC</legend>
-        <div class="align">
-
-             <div class="circle" ng-class={"red":clicked,"green":answered0}>
-               1  
-          </div>
-              <div class="circle" ng-class={"red":clicked,"green":answered1}>
-               2
-          </div>
-              <div class="circle" ng-class={"red":clicked,"green":answered2}>
-               3 
-          </div>
-              <div class="circle" ng-class={"red":clicked,"green":answered3}>
-               4
-        
-        </div> 
-             </div>
-
+        <legend>QUIZ KBC</legend>
+             <span class="circle" ng-class={"red":clicked,"green":answered0}>
+                &nbsp; 1 &nbsp;
+             </span> 
+               <span class="circle" ng-class={"red":clicked,"green":answered1}>
+                &nbsp; 2 &nbsp; 
+             </span>
+               <span class="circle" ng-class={"red":clicked,"green":answered2}>
+                &nbsp; 3 &nbsp; 
+             </span>
+               <span class="circle" ng-class={"red":clicked,"green":answered3}>
+                &nbsp; 4 &nbsp; 
+             </span>
+             
         <table>
-
             <tr ng-class = "red">
-                <td>Welcome to KBC {{welcome.id}}</td>
+                <td>Welcome to KBC : {{welcome.id}}</td>
             </tr>
+            <tr></tr>
             <tr>
                 <td>
-                    <button ng-click="start()">START</button>
+                    <button ng-click="start()">New Quiz</button>
 
                 </td>
                 <td> 
@@ -53,45 +49,28 @@
             </tr>
 
             <tr>
-                <td ng-model="id1">Q.{{result[id1].question}} </td>
+                <td class="question" ng-model="id1">Q.{{result[id1].question}} </td>
             </tr>
             <tr>
                 <td>
-                    <ul>
-                        <li>{{result[id2].choices[0]}}</li>
-                        <li>{{result[id2].choices[1]}}</li>
-                        <li>{{result[id2].choices[2]}}</li>
-                        <li>{{result[id2].choices[3]}}</li>
-
-
-                    </ul>
+                    <input type="radio" name="question" value="0" ng-model="radioValue"> {{result[id2].choices[0]}}
                 </td>
-                <!--                <td ng-model="id2" >{{result[id2].choices}}</td>-->
-
             </tr>
-
-
             <tr>
                 <td>
-                    <input type="radio" name="question" value="0" ng-model="radioValue"> A
+                    <input type="radio" name="question" value="1" ng-model="radioValue"> {{result[id2].choices[1]}}
 
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="question" value="1" ng-model="radioValue"> B
+                    <input type="radio" name="question" value="2" ng-model="radioValue"> {{result[id2].choices[2]}}
 
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="question" value="2" ng-model="radioValue"> C
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="radio" name="question" value="3" ng-model="radioValue"> D
+                    <input type="radio" name="question" value="3" ng-model="radioValue"> {{result[id2].choices[3]}}
 
                 </td>
             </tr>
@@ -101,29 +80,21 @@
          <tr>
             <td>
               <div ng-show="!submit">
-           <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREVIOUS</button>
-           <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>
-<!--            <button ng-click = "deselect()" ng-if="id1<4">deselect </button>-->
-            <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit</button>
-                </div>
+           <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREV</button>     &nbsp; 
+           <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>        &nbsp;
+            <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit </button>
+            </div>
              </td>
          </tr>
          
           </span>
             <div ng-show="submit">
-                <tr>
-                    <td>
-                        <h1>{{message}} {{score}} </h1>
-                        <h2>{{prize}}</h2>
-                    </td>
-                </tr>
-
             </div>
-
         </table>
-
-
     </fieldset>
+    
+<fieldset><h1 class="score">{{message}} {{score}} </h1>
+            <h2 class="prize">{{prize}}</h2></fieldset>
 
 </body>
 
