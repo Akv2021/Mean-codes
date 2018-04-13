@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KBC Welcomes You</title>
+    <script src="../libs/angular.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/app.js"></script>
+    <script src="../js/model.js"></script>
+    <script src="../js/controller.js"></script>
+    <script src="../libs/angular-route.min.js"></script>
+    
+    <script src="../libs/ngStorage.min.js"></script>
+
+</head>
+
+<body ng-app="myApp2" ng-controller="myctrl2" ng-class="bg">
+    <fieldset>
+        <legend>QUIZ KBC</legend>
+             <span class="circle" ng-class={"red":clicked,"green":answered0}>
+                &nbsp; 1 &nbsp;
+             </span> 
+               <span class="circle" ng-class={"red":clicked,"green":answered1}>
+                &nbsp; 2 &nbsp; 
+             </span>
+               <span class="circle" ng-class={"red":clicked,"green":answered2}>
+                &nbsp; 3 &nbsp; 
+             </span>
+               <span class="circle" ng-class={"red":clicked,"green":answered3}>
+                &nbsp; 4 &nbsp; 
+             </span>
+             
+        <table>
+            <tr ng-class = "red">
+                <td>Welcome to KBC : {{welcome.id}}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>
+                    <button ng-click="start()">New Quiz</button>
+
+                </td>
+                <td> 
+                
+                <input type="button" onclick="location.href='../login.html'" value="LOGOUT" />
+                </td>
+            
+            </tr>
+
+            <tr>
+                <td class="question" ng-model="id1">Q.{{result[id1].question}} </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="0" ng-model="radioValue"> {{result[id2].choices[0]}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="1" ng-model="radioValue"> {{result[id2].choices[1]}}
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="2" ng-model="radioValue"> {{result[id2].choices[2]}}
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="question" value="3" ng-model="radioValue"> {{result[id2].choices[3]}}
+
+                </td>
+            </tr>
+
+            <span>
+        
+         <tr>
+            <td>
+              <div ng-show="!submit">
+           <button ng-click ="prev(id1,id2)" ng-if="id1>0">PREV</button>     &nbsp; 
+           <button  ng-click ="next(id1,id2)" ng-if="id1<4">NEXT</button>        &nbsp;
+            <button  ng-click="sent()" ng-model="submit" ng-if="id1>0" > Submit </button>
+            </div>
+             </td>
+         </tr>
+         
+          </span>
+            <div ng-show="submit">
+            </div>
+        </table>
+    </fieldset>
+    
+<fieldset><h1 class="score">{{message}} {{score}} </h1>
+            <h2 class="prize">{{prize}}</h2></fieldset>
+
+</body>
+
+</html>
